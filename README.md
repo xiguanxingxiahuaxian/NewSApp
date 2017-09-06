@@ -1,1 +1,0 @@
-![image](https://github.com/xiguanxingxiahuaxian/ExpandListViewAble/blob/master/expand.gif)
