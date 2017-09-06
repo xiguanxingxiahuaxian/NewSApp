@@ -1,1 +1,1 @@
-http://172.30.3.166/maw/retrofit2rxjava2mvp/blob/master/gta.gif 
+![查看大图](http://172.30.3.166/maw/retrofit2rxjava2mvp/blob/master/gta.gif)
