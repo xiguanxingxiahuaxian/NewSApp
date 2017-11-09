@@ -1,5 +1,6 @@
 package com.basego.maw.constructforandroid.view.activity.impl;
 
+import com.basego.maw.constructforandroid.api.ExceptionHandle;
 import com.basego.maw.constructforandroid.base.BaseView;
 
 import java.util.Observable;
@@ -13,5 +14,5 @@ import java.util.Observable;
  */
 public interface SimpleView extends BaseView {
     void  onSuccess(Object object);
-    void  onFail(Throwable t);
+    void  onFail(ExceptionHandle.ResponeThrowable t);
 }

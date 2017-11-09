@@ -1,5 +1,6 @@
 package com.basego.maw.constructforandroid.presenter;
 
+import com.basego.maw.constructforandroid.api.ExceptionHandle;
 import com.basego.maw.constructforandroid.base.BasePresenter;
 import com.basego.maw.constructforandroid.base.Subscribe;
 import com.basego.maw.constructforandroid.bean.Persion;
@@ -36,7 +37,7 @@ public class SimplePresenter extends BasePresenter<SimpleView> {
             }
 
             @Override
-            public void OnFail(Throwable e) {
+            public void OnFail(ExceptionHandle.ResponeThrowable e) {
                 view.onFail(e);
             }
 

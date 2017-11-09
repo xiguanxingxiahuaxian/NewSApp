@@ -3,6 +3,7 @@ package com.basego.maw.constructforandroid.view.fragment;
 import android.support.v4.app.Fragment;
 
 import com.basego.maw.constructforandroid.R;
+import com.basego.maw.constructforandroid.api.ExceptionHandle;
 import com.basego.maw.constructforandroid.base.MvpFragment;
 import com.basego.maw.constructforandroid.presenter.SimplePresenter;
 import com.basego.maw.constructforandroid.view.activity.impl.SimpleView;
@@ -38,7 +39,7 @@ public class BookFragment extends MvpFragment<SimplePresenter>implements SimpleV
     }
 
     @Override
-    public void onFail(Throwable t) {
+    public void onFail(ExceptionHandle.ResponeThrowable t) {
 
     }
 

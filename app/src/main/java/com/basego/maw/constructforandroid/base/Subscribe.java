@@ -1,5 +1,7 @@
 package com.basego.maw.constructforandroid.base;
 
+import com.basego.maw.constructforandroid.api.ExceptionHandle;
+
 import rx.Subscriber;
 
 /**
@@ -17,7 +19,7 @@ public abstract class Subscribe<T> extends Subscriber<T> {
 
     @Override
     public void onError(Throwable e) {
-        OnFail(e);
+        OnFail(ExceptionHandle.handleException(e));
         onCompleted();
     }
 
@@ -27,7 +29,7 @@ public abstract class Subscribe<T> extends Subscriber<T> {
     }
     public abstract void OnSuccess(T t);
 
-    public abstract void OnFail(Throwable e);
+    public abstract void OnFail(ExceptionHandle.ResponeThrowable e);
 
     public abstract void  OnCompleted();
 }

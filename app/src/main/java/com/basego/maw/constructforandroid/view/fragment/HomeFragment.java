@@ -1,9 +1,11 @@
 package com.basego.maw.constructforandroid.view.fragment;
 
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.basego.maw.constructforandroid.R;
+import com.basego.maw.constructforandroid.api.ExceptionHandle;
 import com.basego.maw.constructforandroid.base.MvpFragment;
 import com.basego.maw.constructforandroid.bean.Persion;
 import com.basego.maw.constructforandroid.presenter.SimplePresenter;
@@ -45,8 +47,8 @@ public class HomeFragment extends MvpFragment<SimplePresenter>implements SimpleV
     }
 
     @Override
-    public void onFail(Throwable t) {
-
+    public void onFail(ExceptionHandle.ResponeThrowable t) {
+        Log.i("HomeFragment",t.toString());
     }
 
     @Override
