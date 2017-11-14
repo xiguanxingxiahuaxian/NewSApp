@@ -2,6 +2,8 @@ package com.basego.maw.constructforandroid.base;
 
 import android.os.Bundle;
 
+import com.basego.maw.constructforandroid.api.SubscriptionManager;
+
 /**
  * 项目名称：Basego
  * 类描述：
@@ -25,5 +27,6 @@ public abstract class MvpActivity <P extends BasePresenter> extends BaseActivity
     protected void onDestroy() {
         super.onDestroy();
         presener.detattch();
+        SubscriptionManager.getInstance().cancelall();
     }
 }

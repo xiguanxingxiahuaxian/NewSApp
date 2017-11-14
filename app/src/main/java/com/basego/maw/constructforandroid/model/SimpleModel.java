@@ -1,11 +1,15 @@
 package com.basego.maw.constructforandroid.model;
 
+import com.basego.maw.constructforandroid.api.AppConfig;
 import com.basego.maw.constructforandroid.api.RetrofitManager;
+import com.basego.maw.constructforandroid.api.SubscriptionManager;
 import com.basego.maw.constructforandroid.base.Subscribe;
 import com.basego.maw.constructforandroid.bean.Persion;
+import com.basego.maw.constructforandroid.bean.news.NewBeanDTO;
 
 import retrofit2.Retrofit;
 import rx.Observable;
+import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -26,10 +30,14 @@ public class SimpleModel {
     * @version
     */
     public void getName (Subscribe<Persion>subscribe){
-        Observable<Persion> observable=RetrofitManager.getSingleton().getSimpleApiservice().getName();
+        Observable<Persion> observable=RetrofitManager.getSingleton(0).getSimpleApiservice().getName();
 
-        observable.subscribeOn(Schedulers.io())
+       Subscription subscription= observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscribe);
+
+        SubscriptionManager.getInstance().add("getName",subscription);
     }
+
+
 }
