@@ -7,6 +7,7 @@ import com.basego.maw.constructforandroid.R;
 import com.basego.maw.constructforandroid.api.ExceptionHandle;
 import com.basego.maw.constructforandroid.base.MvpFragment;
 import com.basego.maw.constructforandroid.presenter.SimplePresenter;
+import com.basego.maw.constructforandroid.utils.CustomProgressDialog;
 import com.basego.maw.constructforandroid.view.activity.impl.SimpleView;
 
 /**
@@ -29,10 +30,6 @@ public class ChatFragment extends MvpFragment<SimplePresenter>implements SimpleV
 
     }
 
-    @Override
-    public void onFail() {
-
-    }
 
     @Override
     public void onSuccess(Object object) {
@@ -56,7 +53,8 @@ public class ChatFragment extends MvpFragment<SimplePresenter>implements SimpleV
 
     @Override
     public void initView() {
-
+        /*CustomProgressDialog customProgressDialog =new CustomProgressDialog(getActivity(),"正在加载",R.drawable.frame);
+        customProgressDialog.show();*/
     }
 
     @Override

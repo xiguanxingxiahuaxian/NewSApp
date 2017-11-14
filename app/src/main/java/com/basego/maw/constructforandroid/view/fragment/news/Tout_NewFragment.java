@@ -7,9 +7,16 @@ import com.basego.maw.constructforandroid.R;
 import com.basego.maw.constructforandroid.api.ExceptionHandle;
 import com.basego.maw.constructforandroid.base.MvpActivity;
 import com.basego.maw.constructforandroid.base.MvpFragment;
+import com.basego.maw.constructforandroid.bean.news.NewBeanDTO;
 import com.basego.maw.constructforandroid.presenter.NewPresenter;
+import com.basego.maw.constructforandroid.utils.CustomProgressDialog;
 import com.basego.maw.constructforandroid.view.activity.impl.SimpleView;
+import com.basego.maw.constructforandroid.view.adapter.SuperRecycleAdapter;
 import com.superrecycleview.superlibrary.recycleview.SuperRecyclerView;
+
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -20,35 +27,44 @@ import butterknife.BindView;
  * 创建时间： 2017/11/10 16:39
  * 修改备注
  */
-public class Tout_NewFragment extends MvpFragment<NewPresenter>implements SimpleView /*,SuperRecyclerView.LoadingListener*/{
-  /*  @BindView(R.id.sv)
-    SuperRecyclerView superRecyclerView;*/
 
+/**
+ * 类型,,top(头条，默认),shehui(社会),guonei(国内),guoji(国际),yule(娱乐),tiyu(体育)junshi(军事),keji(科技),caijing(财经),shishang(时尚)
+ */
+public class Tout_NewFragment extends MvpFragment<NewPresenter>implements SimpleView ,SuperRecyclerView.LoadingListener{
+    private CustomProgressDialog customProgressDialog;
+
+    SuperRecyclerView superRecyclerView;
+    private static String  Request_param;
+    private List<NewBeanDTO.ResultBean.DataBean> list;
+    private SuperRecycleAdapter superRecycleAdapter;
 
     @Override
     public void onShow() {
-
+        customProgressDialog.show();
     }
 
     @Override
     public void onfinish() {
-
+        customProgressDialog.dismiss();
+        superRecyclerView.completeRefresh();
     }
 
-    @Override
-    public void onFail() {
-
-    }
 
     @Override
     public void onSuccess(Object object) {
-
+        if(object instanceof  NewBeanDTO){
+            NewBeanDTO newBeanDTO=(NewBeanDTO)object;
+            list.addAll(newBeanDTO.getResult().getData());
+            
+        }
     }
 
     @Override
     public void onFail(ExceptionHandle.ResponeThrowable t) {
 
     }
+
 
     @Override
     protected NewPresenter initPresenter() {
@@ -62,17 +78,23 @@ public class Tout_NewFragment extends MvpFragment<NewPresenter>implements Simple
 
     @Override
     public void initView() {
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-      /*  superRecyclerView.setLayoutManager(llm);
+        list=new ArrayList<>();
+        superRecyclerView=(SuperRecyclerView)getView().findViewById(R.id.sv);
+        customProgressDialog =new CustomProgressDialog(getActivity(),"正在加载",R.drawable.frame);
+        LinearLayoutManager llm = new LinearLayoutManager(this.getActivity());
+        superRecyclerView.setLayoutManager(llm);
         superRecyclerView.setRefreshEnabled(true); // 开启下拉刷新
-        superRecyclerView.setLoadMoreEnabled(true); //开启下拉刷新   默认开启
+        superRecyclerView.setLoadMoreEnabled(false); //开启下拉刷新   默认开启
         superRecyclerView.setLoadingListener(this);
         superRecyclerView.setArrowImageView(R.mipmap.ic_launcher); //设置下拉刷新的图标*/
+        superRecycleAdapter =new SuperRecycleAdapter(getActivity(),list);
+        superRecyclerView.setAdapter(superRecycleAdapter);
     }
 
     public static Tout_NewFragment newInstance(String text){
         Bundle bundle = new Bundle();
-        bundle.putString("text","哈哈");
+        bundle.putString("text",text);
+        Request_param=text;
         Tout_NewFragment blankFragment = new Tout_NewFragment();
         blankFragment.setArguments(bundle);
         return blankFragment;
@@ -80,16 +102,17 @@ public class Tout_NewFragment extends MvpFragment<NewPresenter>implements Simple
 
     @Override
     public void initData() {
-      //  presener.getTout("toutiao");
+        presener.getTout(Request_param);
     }
 
-  /*  @Override
+    @Override
     public void onRefresh() {
-
+        initData();
     }
 
     @Override
     public void onLoadMore() {
 
-    }*/
+    }
+
 }

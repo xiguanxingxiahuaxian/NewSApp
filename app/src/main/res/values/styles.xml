@@ -7,5 +7,27 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="line_new">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:height">1dp</item>
+        <item name="android:background">#999</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="new_item_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16px</item>
+        <item name="android:textColor">@color/gray_d4</item>
+    </style>
+    <style name="new_item_title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">22px</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:textColor">@color/gray_7f</item>
+    </style>
 
 </resources>

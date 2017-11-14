@@ -29,10 +29,7 @@ public class OwnFragment extends MvpFragment<SimplePresenter>implements SimpleVi
 
     }
 
-    @Override
-    public void onFail() {
 
-    }
 
     @Override
     public void onSuccess(Object object) {

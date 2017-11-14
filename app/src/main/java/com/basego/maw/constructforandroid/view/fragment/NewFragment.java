@@ -37,13 +37,19 @@ public class NewFragment extends BaseFragment {
         return R.layout.new_fragment_layout;
     }
 
-    /*  @Override*/
+    @Override
     public void initView() {
         list = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            list.add(String.format(Locale.CHINA, "第%02d页", i));
-        }
-
+        list.add("top");
+        list.add("shehui");
+        list.add("guonei");
+        list.add("guoji");
+        list.add("yule");
+        list.add("tiyu");
+        list.add("junshi");
+        list.add("keji");
+        list.add("caijing");
+        list.add("shishang");
     }
 
 

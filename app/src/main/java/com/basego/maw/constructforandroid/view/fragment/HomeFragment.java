@@ -34,10 +34,7 @@ public class HomeFragment extends MvpFragment<SimplePresenter>implements SimpleV
 
     }
 
-    @Override
-    public void onFail() {
 
-    }
 
     @Override
     public void onSuccess(Object object) {

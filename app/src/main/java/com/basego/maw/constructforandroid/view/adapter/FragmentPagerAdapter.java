@@ -36,6 +36,43 @@ public class FragmentPagerAdapter extends android.support.v4.app.FragmentPagerAd
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return list.get(position);
+        return transTitle(list.get(position));
+    }
+    //提供转换
+    private String transTitle(String t){
+       String title="";
+        switch (t){
+            case "top":
+                title="头条";
+                break;
+            case "shehui":
+                title="社会";
+                break;
+            case "guonei":
+                title="国内";
+                break;
+            case "guoji":
+                title="国际";
+                break;
+            case "yule":
+                title="娱乐";
+                break;
+            case "tiyu":
+                title="体育";
+                break;
+            case "junshi":
+                title="军事";
+                break;
+            case "keji":
+                title="科技";
+                break;
+            case "caijing":
+                title="财经";
+                break;
+            case "shishang":
+                title="时尚";
+                break;
+        }
+        return  title;
     }
 }

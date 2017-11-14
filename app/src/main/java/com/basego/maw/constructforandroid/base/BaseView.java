@@ -10,5 +10,4 @@ package com.basego.maw.constructforandroid.base;
 public interface BaseView {
     void  onShow();
     void  onfinish();
-    void  onFail();
 }
