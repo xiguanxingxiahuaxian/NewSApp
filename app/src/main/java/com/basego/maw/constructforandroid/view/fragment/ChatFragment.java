@@ -1,5 +1,6 @@
 package com.basego.maw.constructforandroid.view.fragment;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.basego.maw.constructforandroid.R;
@@ -15,8 +16,8 @@ import com.basego.maw.constructforandroid.view.activity.impl.SimpleView;
  * 创建时间： 2017/9/6 14:44
  * 修改备注
  */
-public class BookFragment extends MvpFragment<SimplePresenter>implements SimpleView {
-    public  static  BookFragment fragment;
+public class ChatFragment extends MvpFragment<SimplePresenter>implements SimpleView {
+    public  static ChatFragment fragment;
 
     @Override
     public void onShow() {
@@ -62,10 +63,13 @@ public class BookFragment extends MvpFragment<SimplePresenter>implements SimpleV
     public void initData() {
 
     }
-    public static Fragment getIntance(){
-       if(fragment==null){
-           fragment=new BookFragment();
-       }
+    public static Fragment getIntance(int position) {
+        if (fragment == null) {
+            fragment = new ChatFragment();
+            Bundle args = new Bundle();
+            args.putInt("position", position);
+            fragment.setArguments(args);
+        }
         return fragment;
     }
 }

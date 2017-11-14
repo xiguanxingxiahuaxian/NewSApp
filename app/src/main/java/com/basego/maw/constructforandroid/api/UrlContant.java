@@ -9,4 +9,7 @@ package com.basego.maw.constructforandroid.api;
  */
 public class UrlContant {
     public static  String BASEURL ="http://10.19.92.137:8080/";
+
+    //聚合数据
+    public static  String JH_BASEURL ="http://v.juhe.cn/";
 }

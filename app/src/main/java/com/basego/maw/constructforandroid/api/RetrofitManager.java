@@ -27,21 +27,30 @@ public class RetrofitManager {
   private Retrofit retrofit;
 
 
-  public RetrofitManager(){
-    initRetrofitManager();
+  public RetrofitManager(int i){
+    initRetrofitManager(i);
   }
 
-  private void initRetrofitManager() {
-    retrofit= new Retrofit.Builder().baseUrl(UrlContant.BASEURL).client(defaultHttpClient())
+  /**
+   * 根据不同的业务显示不同的基地址
+   */
+  private void initRetrofitManager(int i) {
+     String url="";
+      switch (i){
+        case 1:
+          url=UrlContant.JH_BASEURL;
+          break;
+      }
+    retrofit= new Retrofit.Builder().baseUrl(url).client(defaultHttpClient())
             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson()))
             .build();
 
   }
-  public static RetrofitManager getSingleton(){
+  public static RetrofitManager getSingleton(int i){
     if(retrofitManager==null){
       synchronized (RetrofitManager.class){
-        retrofitManager =new RetrofitManager();
+        retrofitManager =new RetrofitManager(i);
       }
     }
     return retrofitManager;
@@ -62,5 +71,8 @@ public class RetrofitManager {
   }
   public  SimpleApiservice getSimpleApiservice(){
     return  retrofit.create(SimpleApiservice.class);
+  }
+  public  Jh_NewApiservice jh_newApiservice(){
+    return  retrofit.create(Jh_NewApiservice.class);
   }
 }

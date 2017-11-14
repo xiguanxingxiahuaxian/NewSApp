@@ -5,6 +5,8 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import butterknife.ButterKnife;
+
 /**
  * 项目名称：Basego
  * 类描述：
@@ -19,6 +21,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutid());
         initBefore(savedInstanceState);
+        ButterKnife.bind(this);
         initView();
         initData();
     }

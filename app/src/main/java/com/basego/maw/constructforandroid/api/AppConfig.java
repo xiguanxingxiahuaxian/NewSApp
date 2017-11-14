@@ -10,4 +10,7 @@ package com.basego.maw.constructforandroid.api;
 public class AppConfig {
     public static final String CATCHE_DIRECTORY="cache";
     public static final long CATCHE_SIZE=50*1024*1024;
+
+    //新闻头条 appkey
+    public static final String APPKEY="ec56b6d6b6bbf556ae517d8a0db1b06b";
 }
