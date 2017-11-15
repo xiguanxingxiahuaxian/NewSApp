@@ -10,6 +10,7 @@ import com.basego.maw.constructforandroid.base.MvpFragment;
 import com.basego.maw.constructforandroid.bean.news.NewBeanDTO;
 import com.basego.maw.constructforandroid.presenter.NewPresenter;
 import com.basego.maw.constructforandroid.utils.CustomProgressDialog;
+import com.basego.maw.constructforandroid.utils.GetJsonFromAssetUtils;
 import com.basego.maw.constructforandroid.view.activity.impl.SimpleView;
 import com.basego.maw.constructforandroid.view.adapter.SuperRecycleAdapter;
 import com.superrecycleview.superlibrary.recycleview.SuperRecyclerView;
@@ -79,11 +80,12 @@ public class Tout_NewFragment extends MvpFragment<NewPresenter>implements Simple
     @Override
     public void initView() {
         list=new ArrayList<>();
+        list=GetJsonFromAssetUtils.getStates(getActivity());
         superRecyclerView=(SuperRecyclerView)getView().findViewById(R.id.sv);
         customProgressDialog =new CustomProgressDialog(getActivity(),"正在加载",R.drawable.frame);
         LinearLayoutManager llm = new LinearLayoutManager(this.getActivity());
         superRecyclerView.setLayoutManager(llm);
-        superRecyclerView.setRefreshEnabled(true); // 开启下拉刷新
+        superRecyclerView.setRefreshEnabled(false); // 开启下拉刷新
         superRecyclerView.setLoadMoreEnabled(false); //开启下拉刷新   默认开启
         superRecyclerView.setLoadingListener(this);
         superRecyclerView.setArrowImageView(R.mipmap.ic_launcher); //设置下拉刷新的图标*/
@@ -102,7 +104,7 @@ public class Tout_NewFragment extends MvpFragment<NewPresenter>implements Simple
 
     @Override
     public void initData() {
-        presener.getTout(Request_param);
+      //  presener.getTout(Request_param);
     }
 
     @Override
