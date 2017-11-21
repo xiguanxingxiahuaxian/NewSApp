@@ -40,7 +40,8 @@ public class SuperRecycleAdapter extends SuperBaseAdapter<NewBeanDTO.ResultBean.
         if(item.getThumbnail_pic_s02()!=null){
             return R.layout.news_item_fragmnet;
         }else {
-            return R.layout.news_item_fragmnet_other;
+         //   return R.layout.news_item_fragmnet_other;
+            return R.layout.news_item_fragmnet;
         }
     }
 }

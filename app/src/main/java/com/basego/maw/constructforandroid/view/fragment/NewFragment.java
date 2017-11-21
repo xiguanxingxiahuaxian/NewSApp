@@ -41,7 +41,7 @@ public class NewFragment extends BaseFragment {
     public void initView() {
         list = new ArrayList<>();
         list.add("top");
-      /*  list.add("shehui");
+        list.add("shehui");
         list.add("guonei");
         list.add("guoji");
         list.add("yule");
@@ -49,7 +49,7 @@ public class NewFragment extends BaseFragment {
         list.add("junshi");
         list.add("keji");
         list.add("caijing");
-        list.add("shishang");*/
+        list.add("shishang");
     }
 
 
@@ -57,7 +57,7 @@ public class NewFragment extends BaseFragment {
     public void initData() {
         TabLayout mTabLayout = getView().findViewById(R.id.tablayout);
         ViewPager mViewPager = getView().findViewById(R.id.vpager);
-        mViewPager.setAdapter(new FragmentPagerAdapter(getActivity().getSupportFragmentManager(), list));
+        mViewPager.setAdapter(new FragmentPagerAdapter(this.getChildFragmentManager(), list));
         mTabLayout.setupWithViewPager(mViewPager);
     }
 

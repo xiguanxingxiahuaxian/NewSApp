@@ -45,7 +45,7 @@ public class FragmentPagerAdapter extends android.support.v4.app.FragmentPagerAd
             case "top":
                 title="头条";
                 break;
-           /* case "shehui":
+            case "shehui":
                 title="社会";
                 break;
             case "guonei":
@@ -71,7 +71,7 @@ public class FragmentPagerAdapter extends android.support.v4.app.FragmentPagerAd
                 break;
             case "shishang":
                 title="时尚";
-                break;*/
+                break;
         }
         return  title;
     }
