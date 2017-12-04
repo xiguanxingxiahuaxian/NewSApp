@@ -89,7 +89,7 @@ public class Tout_NewFragment extends MvpFragment<NewPresenter>implements Simple
         list=new ArrayList<>();
         list=GetJsonFromAssetUtils.getStates(getActivity());
         superRecyclerView= getView().findViewById(R.id.sv);
-        customProgressDialog =new CustomProgressDialog(getActivity(),"正在加载",R.drawable.frame);
+        customProgressDialog =new CustomProgressDialog(getActivity(),"正在加载",R.drawable.frame_news);
         LinearLayoutManager llm = new LinearLayoutManager(this.getActivity());
         superRecyclerView.setLayoutManager(llm);
         superRecyclerView.setRefreshEnabled(false); // 开启下拉刷新
