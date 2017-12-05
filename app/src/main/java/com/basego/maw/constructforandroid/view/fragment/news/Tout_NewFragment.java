@@ -109,7 +109,7 @@ public class Tout_NewFragment extends MvpFragment<NewPresenter>implements Simple
 
     @Override
     public void initData() {
-        presener.getTout(Request_param);
+    //    presener.getTout(Request_param);
     }
 
     @Override

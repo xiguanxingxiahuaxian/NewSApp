@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gsyvideoview.maw.gsyvideo">
+    <!-- 请求访问网络状态 -->
+    <application>
+
+       <activity android:name=".SimpleActivity"></activity>
+        <activity android:name=".RecyclerViewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"></activity>
+    </application>
+
+</manifest>

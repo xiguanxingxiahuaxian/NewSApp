@@ -1,6 +1,9 @@
 package com.basego.maw.constructforandroid.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.widget.TextView;
@@ -11,6 +14,9 @@ import com.basego.maw.constructforandroid.base.MvpFragment;
 import com.basego.maw.constructforandroid.bean.Persion;
 import com.basego.maw.constructforandroid.presenter.SimplePresenter;
 import com.basego.maw.constructforandroid.view.activity.impl.SimpleView;
+import com.gsyvideoview.maw.gsyvideo.RecyclerViewActivity;
+
+import butterknife.OnClick;
 
 /**
  * 项目名称：Basego
@@ -22,7 +28,12 @@ import com.basego.maw.constructforandroid.view.activity.impl.SimpleView;
 public class HomeFragment extends MvpFragment<SimplePresenter>implements SimpleView {
 
     private static HomeFragment fragment;
-
+    @OnClick(R.id.home)
+    public void rececly(){
+        Intent intent = new Intent(getActivity(), RecyclerViewActivity.class);
+        ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity());
+        ActivityCompat.startActivity(getActivity(), intent, activityOptions.toBundle());
+    }
 
     @Override
     public void onShow() {

@@ -1,5 +1,6 @@
 package com.basego.maw.constructforandroid.view.activity;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -13,7 +14,8 @@ import com.basego.maw.constructforandroid.base.BaseActivity;
 import com.basego.maw.constructforandroid.view.fragment.ChatFragment;
 import com.basego.maw.constructforandroid.view.fragment.NewFragment;
 import com.basego.maw.constructforandroid.view.fragment.OwnFragment;
-import com.basego.maw.constructforandroid.view.fragment.HomeFragment;
+import com.gsyvideoview.maw.gsyvideo.fragment.VideoRecycleFragment;
+import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
 import java.util.ArrayList;
 
@@ -55,7 +57,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
                 Fragment fragment = null;
                 switch (position) {
                     case 0:
-                        fragment = HomeFragment.getIntance(position);
+                        fragment = VideoRecycleFragment.getIntance(position);
                         break;
                     case 1:
                         fragment = NewFragment.getIntance(position);
@@ -91,6 +93,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 
             }
         });
+
     }
 
 
@@ -122,4 +125,14 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
     public void initData() {
 
     }
+
+    @Override
+    public void onBackPressed() {
+        if (StandardGSYVideoPlayer.backFromWindowFull(this)) {
+                return ;
+        }else{
+            super.onBackPressed();
+        }
+    }
+
 }
